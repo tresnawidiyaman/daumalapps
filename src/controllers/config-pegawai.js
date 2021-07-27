@@ -42,7 +42,7 @@ module.exports = {
   adddata(req, res){
   //Parameter data yang akan ditambahkan
     let data = {
-      usr_nama : req.body.nama,
+      usr_nama : req.body.name,
       usr_nip : req.body.nip,
       usr_pass : req.body.pass,
       usr_jabatan : req.body.jabatan,
@@ -66,7 +66,7 @@ module.exports = {
   editdata(req, res){
   //Parameter data yang akan diubah
     let data = {
-      usr_nama : req.body.nama,
+      usr_nama : req.body.name,
       usr_nip : req.body.nip,
       usr_pass : req.body.pass,
       usr_jabatan : req.body.jabatan,
