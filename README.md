@@ -13,6 +13,8 @@ Menampilkan data berdasarkan id
 ### POST
 Menambahkan data baru
 /api/v1/pegawai/add
+<p>Parameter
+nama,nip,pass,jabatan,grade,site,ttl,alamat,ttd</p>
 
 ### PUT
 Mengubah data yang sudah ada
@@ -33,6 +35,9 @@ Menampilkan data berdasarkan id
 ### POST
 Menambahkan data baru
 /api/v1/activity/add
+<p>Parameter
+name,site,no,unit,code,cn,hm,wo,component,job,date,start,finish,adj,active</p>
+      
 
 ### PUT
 Mengubah data yang sudah ada
