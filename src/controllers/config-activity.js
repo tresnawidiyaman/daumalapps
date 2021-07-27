@@ -42,21 +42,21 @@ module.exports = {
   adddata(req, res){
   //Parameter data yang akan ditambahkan
     let data = {
-      ac_name : req.body.ac_name,
-      ac_site : req.body.ac_site,
-      ac_no : req.body.ac_no,
-      ac_unit : req.body.ac_unit,
-      ac_code : req.body.ac_code,
-      ac_cn : req.body.ac_cn,
-      ac_hm : req.body.ac_hm,
-      ac_wo : req.body.ac_wo,
-      ac_component : req.body.ac_component,
-      ac_job : req.body.ac_job,
-      ac_date : req.body.ac_date,
-      ac_start : req.body.ac_start,
-      ac_finish : req.body.ac_finish,
-      ac_adj : req.body.ac_adj,
-      ac_active : req.body.ac_active
+      ac_name : req.body.name,
+      ac_site : req.body.site,
+      ac_no : req.body.no,
+      ac_unit : req.body.unit,
+      ac_code : req.body.code,
+      ac_cn : req.body.cn,
+      ac_hm : req.body.hm,
+      ac_wo : req.body.wo,
+      ac_component : req.body.component,
+      ac_job : req.body.job,
+      ac_date : req.body.date,
+      ac_start : req.body.start,
+      ac_finish : req.body.finish,
+      ac_adj : req.body.adj,
+      ac_active : req.body.active
       
     };
     let sql = "INSERT INTO tbl_activity SET ?";
@@ -73,21 +73,22 @@ module.exports = {
   editdata(req, res){
   //Parameter data yang akan diubah
     let data = {
-      ac_name : req.body.ac_name,
-      ac_site : req.body.ac_site,
-      ac_no : req.body.ac_no,
-      ac_unit : req.body.ac_unit,
-      ac_code : req.body.ac_code,
-      ac_cn : req.body.ac_cn,
-      ac_hm : req.body.ac_hm,
-      ac_wo : req.body.ac_wo,
-      ac_component : req.body.ac_component,
-      ac_job : req.body.ac_job,
-      ac_date : req.body.ac_date,
-      ac_start : req.body.ac_start,
-      ac_finish : req.body.ac_finish,
-      ac_adj : req.body.ac_adj,
-      ac_active : req.body.ac_active
+      ac_name : req.body.name,
+      ac_site : req.body.site,
+      ac_no : req.body.no,
+      ac_unit : req.body.unit,
+      ac_code : req.body.code,
+      ac_cn : req.body.cn,
+      ac_hm : req.body.hm,
+      ac_wo : req.body.wo,
+      ac_component : req.body.component,
+      ac_job : req.body.job,
+      ac_date : req.body.date,
+      ac_start : req.body.start,
+      ac_finish : req.body.finish,
+      ac_adj : req.body.adj,
+      ac_active : req.body.active
+      
     };
     let sql = "UPDATE tbl_activity SET ? WHERE ac_id="+req.params.id;
     let query = conn.query(sql, data, (err, result) => {

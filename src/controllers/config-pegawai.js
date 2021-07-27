@@ -42,15 +42,15 @@ module.exports = {
   adddata(req, res){
   //Parameter data yang akan ditambahkan
     let data = {
-      usr_nama : req.body.usr_nama,
-      usr_nip : req.body.usr_nip,
-      usr_pass : req.body.usr_pass,
-      usr_jabatan : req.body.usr_jabatan,
-      usr_grade : req.body.usr_grade,
-      usr_site : req.body.usr_site,
-      usr_ttl : req.body.usr_ttl,
-      usr_alamat : req.body.usr_alamat,
-      usr_ttd : req.body.usr_ttd
+      usr_nama : req.body.nama,
+      usr_nip : req.body.nip,
+      usr_pass : req.body.pass,
+      usr_jabatan : req.body.jabatan,
+      usr_grade : req.body.grade,
+      usr_site : req.body.site,
+      usr_ttl : req.body.ttl,
+      usr_alamat : req.body.alamat,
+      usr_ttd : req.body.ttd
     };
     let sql = "INSERT INTO tbl_user SET ?";
     let query = conn.query(sql, data, (err, result) => {
@@ -66,15 +66,15 @@ module.exports = {
   editdata(req, res){
   //Parameter data yang akan diubah
     let data = {
-      usr_nama : req.body.usr_nama,
-      usr_nip : req.body.usr_nip,
-      usr_pass : req.body.usr_pass,
-      usr_jabatan : req.body.usr_jabatan,
-      usr_grade : req.body.usr_grade,
-      usr_site : req.body.usr_site,
-      usr_ttl : req.body.usr_ttl,
-      usr_alamat : req.body.usr_alamat,
-      usr_ttd : req.body.usr_ttd
+      usr_nama : req.body.nama,
+      usr_nip : req.body.nip,
+      usr_pass : req.body.pass,
+      usr_jabatan : req.body.jabatan,
+      usr_grade : req.body.grade,
+      usr_site : req.body.site,
+      usr_ttl : req.body.ttl,
+      usr_alamat : req.body.alamat,
+      usr_ttd : req.body.ttd
     };
     let sql = "UPDATE tbl_user SET ? WHERE usr_id="+req.params.id;
     let query = conn.query(sql, data, (err, result) => {
