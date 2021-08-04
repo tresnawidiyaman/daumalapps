@@ -10,6 +10,9 @@ app.get('/api/v1/pegawai', pegawai.getdata);
 //Menampilkan data berdasarkan id
 app.get('/api/v1/pegawai/:id', pegawai.getdataid);
 
+//Menampilkan data berdasarkan nip
+app.get('/api/v1/pegawai/nip/:nip', pegawai.getdatanip);
+
 //Menambahkan data baru
 app.post('/api/v1/pegawai/add', pegawai.adddata);
 

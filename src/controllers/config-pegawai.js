@@ -38,6 +38,19 @@ module.exports = {
       });
     });
   },
+  //Menampilkan data berdasarkan id
+  getdatanip(req, res){
+    let sql = "SELECT * FROM tbl_user WHERE usr_nip="+req.params.nip;
+    let query = conn.query(sql, (err, result) => {
+      if (err) throw err;
+      res.send({
+          "status":200,
+          "error":null,
+          "message":'Berhasil menampilkan data',
+          "response":result
+      });
+    });
+  },
   //Menambahkan data baru
   adddata(req, res){
   //Parameter data yang akan ditambahkan
