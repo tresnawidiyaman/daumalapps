@@ -76,7 +76,7 @@ drwxrwxr-x   5 warriornux warriornux   4096 Aug  5 06:16 src
 ```
 <br>
 Setelah kamu termukan, selanjutnya import database tersebut dengan perintah <br>
-``` sudo mysql -u root -p namadatabase < smart_hillconplant.sql ```
+` sudo mysql -u root -p namadatabase < smart_hillconplant.sql `
 
 ### Mengubah konfigurasi database aplikasi
 Aplikasi backend di desain untuk digunakan pada server localhost, apabila kamu menggunakan server cloud dan mysql mu diberi password maka kita harus mengubahnya.

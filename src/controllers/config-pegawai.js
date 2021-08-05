@@ -17,12 +17,9 @@ module.exports = {
     let sql = "SELECT * FROM tbl_user";
     let query = conn.query(sql, (err, result) => {
         if (err) throw err;
-        res.send({
-            "status":200,
-            "error":null,
-            "message":'Berhasil menampilkan data',
-            "response":result
-        });
+        res.send(
+            result
+        );
     });
   },
   //Menampilkan data berdasarkan id
@@ -30,12 +27,9 @@ module.exports = {
     let sql = "SELECT * FROM tbl_user WHERE usr_id="+req.params.id;
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
-      res.send({
-          "status":200,
-          "error":null,
-          "message":'Berhasil menampilkan data',
-          "response":result
-      });
+      res.send(
+          result
+      );
     });
   },
   //Menampilkan data berdasarkan id
@@ -43,12 +37,9 @@ module.exports = {
     let sql = "SELECT * FROM tbl_user WHERE usr_nip="+req.params.nip;
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
-      res.send({
-          "status":200,
-          "error":null,
-          "message":'Berhasil menampilkan data',
-          "response":result
-      });
+      res.send(
+          result
+      );
     });
   },
   //Menambahkan data baru
@@ -69,9 +60,7 @@ module.exports = {
     let query = conn.query(sql, data, (err, result) => {
       if (err) throw err;
       res.send({
-          "status":200,
-          "error":null,
-          "message":'Data berhasil ditambahkan',
+          "message":'Data berhasil ditambahkan'
       });
     });
   },
@@ -93,9 +82,7 @@ module.exports = {
     let query = conn.query(sql, data, (err, result) => {
       if (err) throw err;
       res.send({
-          "status":200,
-          "error":null,
-          "message":'Data berhasil diubah',
+          "message":'Data berhasil diubah'
       });
     });
   },
@@ -105,9 +92,7 @@ module.exports = {
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
       res.send({
-          "status":200,
-          "error":null,
-          "message":'Data berhasil dihapus',
+          "message":'Data berhasil dihapus'
       });
     });
   }  
