@@ -22,3 +22,36 @@ kamu akan diminta password mysql, tapi pada installasi awal biasanya mysql tidak
 ### Melihat isi database
 Untuk melihat list dari database yang ada pada mysql, kita dapat menggunakan perintah berikut setelah login pada mysql
 ` show databases; `
+
+### Membuat database baru
+Untuk membuat database baru, kamu dapat menggunakan perintah berikut ini.
+` create database namadatabase;`
+
+### Masuk kedalam database
+Untuk masuk kedalam database kita bisa menggunakan perintah berikut
+` use namadatabase; `
+
+### Melihat isi table database
+Untuk melihat table apa saja dalam database, kita bisa menggunakan perintah berikut
+` show tables; `
+
+### Melihat coloum dari table database
+Didalam sebuah table biasanya kita membuat beberapa coloum, untuk melihat coloum tersebut kita bisa menggunakan perintah berikut
+` DESCRIBE namatable; `
+
+### Mengubah type data dari coloum
+Pada beberapa kasus kita salah membuat type data untuk coloum yang sudah kita buat dalam table database, untuk mengubahnya kita bisa mengunakan perintah berikut<br>
+` ALTER TABLE namatable MODIFY namacoloum INTEGER; ` <br>
+Pastikan kita sudah masuk terlebih dahulu pada database yang akan di modifikasi coloumnya.
+
+### Keluar dari mysql console
+Untuk keluar dari database console kita dapat menggunakan perintah berikut
+` quit; `
+
+## Setup Aplikasi Backend
+### Clone aplikasi ke server
+Hal pertama yang perlu kita lakukan adalah melakukan clone aplikasi API yang sebelumnya sudah dibuat dari alamat github yang sudah disesuaikan, sebelum itu pastikan dulu kita berada pada directory home user yang kita miliki dengan perinath ` pwq ` <br>
+````
+warriornux@WarriornuxDevelopment:~$ pwd
+/home/warriornux
+```
