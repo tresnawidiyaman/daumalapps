@@ -17,9 +17,9 @@ module.exports = {
     let sql = "SELECT * FROM tbl_activity";
     let query = conn.query(sql, (err, result) => {
         if (err) throw err;
-        res.send(
-            result
-        );
+        res.send( {
+          "result": result
+        });
     });
   },
   //Menampilkan data berdasarkan id
@@ -27,9 +27,9 @@ module.exports = {
     let sql = "SELECT * FROM tbl_activity WHERE ac_id="+req.params.id;
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
-      res.send(
-          result
-      );
+      res.send({
+        "result": result
+      });
     });
   },
   //Menambahkan data baru

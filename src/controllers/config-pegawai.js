@@ -18,7 +18,9 @@ module.exports = {
     let query = conn.query(sql, (err, result) => {
         if (err) throw err;
         res.send(
-            result
+          {
+            "result": result
+          }
         );
     });
   },
@@ -28,7 +30,9 @@ module.exports = {
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
       res.send(
-          result
+        {
+          "result": result
+        }
       );
     });
   },
@@ -38,7 +42,9 @@ module.exports = {
     let query = conn.query(sql, (err, result) => {
       if (err) throw err;
       res.send(
-          result
+        {
+          "result": result
+        }
       );
     });
   },
@@ -54,7 +60,8 @@ module.exports = {
       usr_site : req.body.site,
       usr_ttl : req.body.ttl,
       usr_alamat : req.body.alamat,
-      usr_ttd : req.body.ttd
+      usr_ttd : req.body.ttd,
+      usr_image : req.body.image
     };
     let sql = "INSERT INTO tbl_user SET ?";
     let query = conn.query(sql, data, (err, result) => {
@@ -76,7 +83,8 @@ module.exports = {
       usr_site : req.body.site,
       usr_ttl : req.body.ttl,
       usr_alamat : req.body.alamat,
-      usr_ttd : req.body.ttd
+      usr_ttd : req.body.ttd,
+      usr_image : req.body.image
     };
     let sql = "UPDATE tbl_user SET ? WHERE usr_id="+req.params.id;
     let query = conn.query(sql, data, (err, result) => {
