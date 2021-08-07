@@ -1,65 +1,84 @@
 # Setup Server & Backend
 
 ## Installasi Server
-### Download Xampp for Linux
-Untuk kebutuhan server kita membutuhkan layanan mysql, disini untuk memastikan layanan tersebut stabil kita akan gunakan xampp. Maka dari itu kita download terlebih dahulu dengan menggunakan perintah berikut/ <br>
+### 1. Download Xampp for Linux
+Untuk kebutuhan server kita membutuhkan layanan mysql, disini untuk memastikan layanan tersebut stabil kita akan gunakan xampp. Maka dari itu kita download terlebih dahulu dengan menggunakan perintah berikut. <br>
 ` wget https://www.apachefriends.org/xampp-files/7.4.22/xampp-linux-x64-7.4.22-0-installer.run `<br>
 
-Setelah berhasil di download, kita berikan hak akses pada file tersebut. <br>
+Setelah berhasil di download, kita berikan hak akses pada file tersebut agar bisa di eksekusi dan di install. <br>
 ` chmod +x xampp-linux-x64-7.4.22-0-installer.run `
 
-### Installasi Webserver dan Database Server
+### 2. Installasi Webserver dan Database Server
 Selanjutnya kita lakukan installasi. Untuk melakukan installasi kita dapat menggunakan perintah berikut.<br>
 ` ./xampp-linux-x64-7.4.22-0-installer.run `<br>
 
-Kamu akan menemukan pertanyaan seperti ini, klik yes terus untuk melanjutkan hingga proses installasi selesai<br>
+Kamu akan menemukan pertanyaan seperti saat proses installasi, ketik yes terus untuk melanjutkan hingga proses installasi selesai.
 
 
-### Installasi Nodejs dan NPM Packager
-Dikarenakan backend yang kita gunakan untuk API berbasis Express.js maka kita harus melakukan installasi nodejs dan npm packager sehingga nanti aplikasi dapat dijalanakan.
+### 3. Installasi Nodejs dan NPM Packager
+Dikarenakan backend yang kita gunakan untuk API berbasis Express.js maka kita harus melakukan installasi nodejs dan npm packager sehingga nanti aplikasi dapat dijalanakan.<br>
 ` sudo apt-get install nodejs npm `
 
-### Installasi Nodemon 
-Nodemon merupakan salah satu paket pendukung dari nodejs yang berfungsi menjalankan kembali aplikasi apabila terjadi perubahan pada data, ini berfungsi untuk melakukan restart juga apabila ada input yang tidak sesuai dengan parameter data yang sudah ditentukan.
+### 4. Installasi Nodemon 
+Nodemon merupakan salah satu paket pendukung dari nodejs yang berfungsi menjalankan kembali aplikasi apabila terjadi perubahan pada data, ini berfungsi untuk melakukan restart juga apabila ada input yang tidak sesuai dengan parameter data yang sudah ditentukan.<br>
 ` sudo npm install nodemon -g `
 
 ## Konfigurasi Server
-### Mengakses mysql
+### 1. Menjalankan server
+Karena kita membutuhkan layanan mysql saja, maka kita akan jalankan layanan tersebut saja dengan menggunakan perintah.<br>
+` sudo /opt/lampp/bin/mysql.server start ` <br>
+(optional) Jika kamu ingin menjalankan semua layanan (mysql, apache, ftp) maka bisa menggunakan perintah berikut<br>
+` sudo /opt/lampp/lampp start `
+
+### 2. Mengakses mysql
 Untuk melakukan akses pada aplikasi database mysql kita dapat menggunakan perintah berikut
 ` sudo /opt/lampp/bin/mysql -u root -p ` <br>
-kamu akan diminta password mysql, tapi pada installasi awal biasanya mysql tidak diberikan password jadi cukup klik enter saja.
+kamu akan diminta password mysql, tapi pada installasi awal biasanya mysql tidak diberikan password jadi cukup klik enter saja. Maka hasilnya akan seperti berikut.<br>
+```
+warrior@warriorVM:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.20-MariaDB Source distribution
 
-### Melihat isi database
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+
+### 3. Melihat isi database
 Untuk melihat list dari database yang ada pada mysql, kita dapat menggunakan perintah berikut setelah login pada mysql
 ` show databases; `
 
-### Membuat database baru
+### 4. Membuat database baru
 Untuk membuat database baru, kamu dapat menggunakan perintah berikut ini.
 ` create database namadatabase;`
 
-### Masuk kedalam database
+### 5. Masuk kedalam database
 Untuk masuk kedalam database kita bisa menggunakan perintah berikut
 ` use namadatabase; `
 
-### Melihat isi table database
+### 6. Melihat isi table database
 Untuk melihat table apa saja dalam database, kita bisa menggunakan perintah berikut
 ` show tables; `
 
-### Melihat coloum dari table database
+### 7. Melihat coloum dari table database
 Didalam sebuah table biasanya kita membuat beberapa coloum, untuk melihat coloum tersebut kita bisa menggunakan perintah berikut
 ` DESCRIBE namatable; `
 
-### Mengubah type data dari coloum
+### 8. Mengubah type data dari coloum
 Pada beberapa kasus kita salah membuat type data untuk coloum yang sudah kita buat dalam table database, untuk mengubahnya kita bisa mengunakan perintah berikut<br>
 ` ALTER TABLE namatable MODIFY namacoloum INTEGER; ` <br>
 Pastikan kita sudah masuk terlebih dahulu pada database yang akan di modifikasi coloumnya.
 
-### Keluar dari mysql console
+### 9. Keluar dari mysql console
 Untuk keluar dari database console kita dapat menggunakan perintah berikut
 ` quit; `
 
 ## Setup Aplikasi Backend
-### Clone aplikasi ke server
+### 1. Clone aplikasi ke server
 Hal pertama yang perlu kita lakukan adalah melakukan clone aplikasi API yang sebelumnya sudah dibuat dari alamat github yang sudah disesuaikan, sebelum itu pastikan dulu kita berada pada directory home dengan menggunakan perintah berikut.<br>
 ` cd /home/`<br>
 
@@ -68,7 +87,7 @@ Setelah itu lakukan clone menggunakan perintah berikut <br>
 
 Selanjutnya ketika clone berhasil, masuk ke directory clone tersebut ` cd daumalapps `
 
-### Import sql database
+### 2. Import sql database
 Aplikasi backend yang di clone sudah disertai dengan sql database yang dapat digunakan, untuk melihat file sql tersebut kamu dapat menggunakan perintah `ls -l`<br>
 ```
 warriornux@WarriornuxDevelopment:~/daumalapps$ ls -l
@@ -87,7 +106,7 @@ Kamu akan melihat nama file database dengan smart_hilconplant.sql, sebelum mulai
 Setelah kamu membuat databse tersebut, selanjutnya import database tersebut dengan perintah <br>
 ` sudo /opt/lampp/bin/mysql -u root -p smart_hillconplant < smart_hillconplant.sql `
 
-### Mengubah konfigurasi database aplikasi (Optional)
+### 3. Mengubah konfigurasi database aplikasi (Optional)
 Aplikasi backend di desain untuk digunakan pada server localhost, apabila kamu menggunakan server cloud dan mysql mu diberi password maka kita harus mengubahnya.
 Untuk mengubahnya kita bisa masuk kedalam file konfigurasi dengan perintah berikut <br>
 ` sudo nano src/configs/database.js ` <br><br>
@@ -104,7 +123,7 @@ module.exports = {
 
 Setelah kamu ubah, simpan dengan menekan `ctrl+x` lalu klik y untuk mengonfirmasi.
 
-### Menjalankan aplikasi
+### 4. Menjalankan aplikasi
 Untuk menjalankan aplikasi backend dari nodejs ini kamu dapat menggunakan perintah berikut<br>
 `sudo node app.js` <br>
 
@@ -120,17 +139,17 @@ Data Activity connected, yeah !
 Selanjutnya kamu hanya perlu melakukan check menggunakan postman apakah aplikasi sudah berjalan atau belum.
 
 ## Jalankan Aplikasi Otomatis
-### Installasi file
+### 1. Installasi file
 Untuk menjalankan aplikasi backend ini secara otomatis ketika server di restart, maka kamu hanya perlu melakuakn beberapa perintah berikut. Pertama beri akses kepada file <br>
 ` chmod +x installapps.sh `<br>
 
-Setelah itu lakukan installasi
+Setelah itu lakukan installasi<br>
 ` sudo ./installapps.sh `<br>
 
-Setelah installasi selesai dilakukan, restart server.
+Setelah installasi selesai dilakukan, restart server.<br>
 ` sudo reboot `
 
-### Memastikan Aplikasi sudah berjalan
+### 2. Memastikan Aplikasi sudah berjalan
 Setelah server hidup kembali, kita coba untuk memastiakan apakah aplikasi yang sudah kita install tadi berjalan dengan baik. Caranya dengan menggunakan perintah berikut <br>
 ` systemctl status daumalapps.service `<br>
 Jika muncul seperti dibawah ini, maka aplikasi backend sudah berjalan dengan baik dan kita hanya perlu mengoperasikannya baik itu dari apps fronend yang kita buat maupun dengan postman <br>
@@ -163,3 +182,51 @@ Aug 07 04:39:20 warriorVM daumalapps.sh[1521]: Data Pegawai connected, yeah !
 Aug 07 04:39:20 warriorVM daumalapps.sh[1521]: Data Activity connected, yeah !
 ```
 
+# Dokumentasi API
+Aplikasi backend ini menggunakan nodejs dan Expressjs dengan port 8000 sebagai default jalur komunikasinya. Untuk mengakses API tersebut kamu dapat menggunakan struktur alamat seperti contoh berikut. <br>
+` alamatserver:8000/api/v1/pegawai`
+
+## API Data Pegawai
+### GET
+Menampilkan semua data
+/api/v1/pegawai
+
+Menampilkan data berdasarkan id
+/api/v1/pegawai/:id
+
+### POST
+Menambahkan data baru
+/api/v1/pegawai/add
+<p>Parameter
+nama,nip,pass,jabatan,grade,site,ttl,alamat,ttd</p>
+
+### PUT
+Mengubah data yang sudah ada
+/api/v1/pegawai/:id
+
+### DEL
+Mengapus data
+/api/v1/pegawai/:id
+
+## API Data Activity
+### GET
+Menampilkan semua data
+/api/v1/activity
+
+Menampilkan data berdasarkan id
+/api/v1/activity/:id
+
+### POST
+Menambahkan data baru
+/api/v1/activity/add
+<p>Parameter
+name,site,no,unit,code,cn,hm,wo,component,job,date,start,finish,adj,active</p>
+      
+
+### PUT
+Mengubah data yang sudah ada
+/api/v1/activity/:id
+
+### DEL
+Mengapus data
+/api/v1/activity/:id
