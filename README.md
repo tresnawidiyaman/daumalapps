@@ -215,6 +215,8 @@ Dalam konsep API ada beberapa method yang biasanya kita gunakan diantaranya adal
 Parameter ` name,nip,pass,jabatan,grade,site,ttl,alamat,ttd,image `<br>
 2. */api/v1/activity/add*, Menambahkan data activity baru<br>
 Parameter ` name,site,no,unit,code,cn,hm,wo,component,job,date,start,finish,adj,active `<br>
+3. */api/v1/pegawai/login*, Untuk login data pegawai<br>
+Parameter ` nip, pass `<br>
 
 ### API Address DEL
 1. */api/v1/pegawai/:id*, Menghapus data pegawai berdasarkan id
