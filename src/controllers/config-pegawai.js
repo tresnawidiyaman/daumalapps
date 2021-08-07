@@ -103,5 +103,23 @@ module.exports = {
           "message":'Data berhasil dihapus'
       });
     });
-  }  
+  },
+   //Login User
+   login(req, res){
+    //Parameter data yang akan ditambahkan
+      let data = {
+        usr_nip : req.body.nip,
+        usr_pass : req.body.pass
+      };
+      let sql = "SELECT * FROM tbl_user WHERE usr_nip="+req.body.nip+" AND usr_pass="+req.body.pass;
+      let query = conn.query(sql, data, (err, result) => {
+        if (err) throw err;
+        if (result == 0) {
+          res.send({ "result":'Login Failed'});
+        }
+        res.send({
+          "result":result
+        });
+      });
+    }  
 }

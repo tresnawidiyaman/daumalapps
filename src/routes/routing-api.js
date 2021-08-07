@@ -22,6 +22,8 @@ app.put('/api/v1/pegawai/:id', pegawai.editdata);
 //Mengapus data
 app.delete('/api/v1/pegawai/:id', pegawai.deletedata);
 
+//Login Pegawai
+app.post('/api/v1/login', pegawai.login);
 
 //Menampilkan semua data
 app.get('/api/v1/activity', activity.getdata);
