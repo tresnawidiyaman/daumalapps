@@ -8,4 +8,5 @@ sudo chmod 755 /usr/local/bin/daumalapps.sh
 sudo chmod 755 /etc/systemd/system/daumalapps.service
 sudo systemctl daemon-reload
 sudo systemctl enable daumalapps.service
+sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p
 echo "Installation Succesfull, please reboot your system !"
