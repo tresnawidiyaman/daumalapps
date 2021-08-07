@@ -53,7 +53,7 @@ Untuk keluar dari database console kita dapat menggunakan perintah berikut
 Hal pertama yang perlu kita lakukan adalah melakukan clone aplikasi API yang sebelumnya sudah dibuat dari alamat github yang sudah disesuaikan, sebelum itu pastikan dulu kita berada pada directory home user yang kita miliki dengan perinath ` pwq ` <br>
 ```
   warriornux@WarriornuxDevelopment:~$ pwd
-  /home/warriornux 
+  /home/namauser 
 ```
 Setelah itu lakukan clone menggunakan perintah berikut <br>
 ` git clone https://github.com/tresnawidiyaman/daumalapps.git ` <br>
@@ -74,11 +74,12 @@ drwxrwxr-x 164 warriornux warriornux   4096 Aug  5 06:16 node_modules
 -rw-rw-r--   1 warriornux warriornux   3583 Aug  5 06:16 smart_hillconplant.sql
 drwxrwxr-x   5 warriornux warriornux   4096 Aug  5 06:16 src
 ```
-<br>
-Setelah kamu termukan, selanjutnya import database tersebut dengan perintah <br>
-` sudo mysql -u root -p namadatabase < smart_hillconplant.sql `
+Kamu akan melihat nama file database dengan smart_hilconplant.sql, sebelum mulai meakukan import pertama kamu harus membuat sebuah database dengan nama smart_hilconplant. Kamu bisa mengikuti instruksi sebelumnya [Membuat Database baru](### Membuat database baru<br>
 
-### Mengubah konfigurasi database aplikasi
+Setelah kamu membuat databse tersebut, selanjutnya import database tersebut dengan perintah <br>
+` sudo mysql -u root -p smart_hillconplant < smart_hillconplant.sql `
+
+### Mengubah konfigurasi database aplikasi (Optional)
 Aplikasi backend di desain untuk digunakan pada server localhost, apabila kamu menggunakan server cloud dan mysql mu diberi password maka kita harus mengubahnya.
 Untuk mengubahnya kita bisa masuk kedalam file konfigurasi dengan perintah berikut <br>
 ` nano src/configs/database.js ` <br><br>
@@ -92,7 +93,7 @@ module.exports = {
     database: 'smart_hillconplant'
 }
 ```
-<br>
+
 Setelah kamu ubah, simpan dengan menekan `ctrl+x` lalu klik y untuk mengonfirmasi.
 
 ### Menjalankan aplikasi
@@ -101,8 +102,14 @@ Untuk menjalankan aplikasi backend dari nodejs ini kamu dapat menggunakan perint
 
 Jika muncul tampilan tersebut, maka aplikasimu sudah berhasil dijalankan<br>
 ```
-  warriornux@WarriornuxDevelopment:~$ pwd
-  /home/warriornux 
+warrior@warriorVM:~/www/daumalapps$ node app.js 
+Server dijalankan pada port 8000
+Data Pegawai connected, yeah !
+Data Activity connected, yeah !
+ 
 ```
 
-asas
+Selanjutnya kamu hanya perlu melakukan check menggunakan postman apakah aplikasi sudah berjalan atau belum.
+
+## Jalankan Aplikasi Otomatis
+### Installasi file
