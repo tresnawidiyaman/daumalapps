@@ -32,6 +32,7 @@ Nodemon merupakan salah satu paket pendukung dari nodejs yang berfungsi menjalan
 ### 1. Menjalankan server
 Karena kita membutuhkan layanan mysql saja, maka kita akan jalankan layanan tersebut saja dengan menggunakan perintah.<br>
 ` sudo /opt/lampp/bin/mysql.server start ` <br>
+
 (optional) Jika kamu ingin menjalankan semua layanan (mysql, apache, ftp) maka bisa menggunakan perintah berikut<br>
 ` sudo /opt/lampp/lampp start `
 
@@ -113,8 +114,9 @@ Setelah kamu membuat databse tersebut, selanjutnya import database tersebut deng
 
 ### 3. Mengubah konfigurasi database aplikasi (Optional)
 Aplikasi backend di desain untuk digunakan pada server localhost, apabila kamu menggunakan server cloud dan mysql mu diberi password maka kita harus mengubahnya.
+
 Untuk mengubahnya kita bisa masuk kedalam file konfigurasi dengan perintah berikut <br>
-` sudo nano src/configs/database.js ` <br><br>
+` sudo nano src/configs/database.js ` <br>
 
 Maka akan muncul configurasi berikut, ubah dan sesuaikan<br>
 ```
@@ -157,6 +159,7 @@ Setelah installasi selesai dilakukan, restart server.<br>
 ### 2. Memastikan Aplikasi sudah berjalan
 Setelah server hidup kembali, kita coba untuk memastiakan apakah aplikasi yang sudah kita install tadi berjalan dengan baik. Caranya dengan menggunakan perintah berikut <br>
 ` systemctl status daumalapps.service `<br>
+
 Jika muncul seperti dibawah ini, maka aplikasi backend sudah berjalan dengan baik dan kita hanya perlu mengoperasikannya baik itu dari apps fronend yang kita buat maupun dengan [postman](https://chrome.google.com/webstore/detail/tabbed-postman-rest-clien/coohjcphdfgbiolnekdpbcijmhambjff?hl=en) <br>
 ```
 warrior@warriorVM:~$ sudo systemctl status daumalapps.service 
