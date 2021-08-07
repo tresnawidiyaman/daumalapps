@@ -2,7 +2,6 @@
 After=network.service
 
 [Service]
-User=root
 ExecStart=/usr/local/bin/daumalapps.sh
 
 [Install]
