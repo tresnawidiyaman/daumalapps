@@ -204,26 +204,26 @@ Dalam konsep API ada beberapa method yang biasanya kita gunakan diantaranya adal
 4. **PUT**, berfungsi untuk mengedit data dengan parameter tertentu
 
 ### API Address GET
-1. */api/v1/pegawai*, Menampilkan data pegawai
-2. */api/v1/pegawai/:id*, Menampilkan data pegawai berdasarkan id
-3. */api/v1/pegawai/nip/:nip*, Menampilkan data pegawai berdasarkan nip
-4. */api/v1/activity*, Menampilkan data activity
-5. */api/v1/activity/:id*, Menampilkan data activity berdasarkan id
+1. `/api/v1/pegawai`, Menampilkan data pegawai
+2. `/api/v1/pegawai/:id`, Menampilkan data pegawai berdasarkan id
+3. `/api/v1/pegawai/nip/:nip`, Menampilkan data pegawai berdasarkan nip
+4. `/api/v1/activity`, Menampilkan data activity
+5. `/api/v1/activity/:id`, Menampilkan data activity berdasarkan id
 
 ### API Address POST
-1. */api/v1/pegawai/add*, Menambahkan data pegawai baru<br>
+1. `/api/v1/pegawai/add`, Menambahkan data pegawai baru<br>
 Parameter ` name,nip,pass,jabatan,grade,site,ttl,alamat,ttd,image `<br>
-2. */api/v1/activity/add*, Menambahkan data activity baru<br>
+2. `/api/v1/activity/add`, Menambahkan data activity baru<br>
 Parameter ` name,site,no,unit,code,cn,hm,wo,component,job,date,start,finish,adj,active `<br>
-3. */api/v1/pegawai/login*, Untuk login data pegawai<br>
+3. `/api/v1/pegawai/login`, Untuk login data pegawai<br>
 Parameter ` nip, pass `<br>
 
 ### API Address DEL
-1. */api/v1/pegawai/:id*, Menghapus data pegawai berdasarkan id
-2. */api/v1/activity/:id*, Menghapus data activity berdasarkan id
+1. `/api/v1/pegawai/:id`, Menghapus data pegawai berdasarkan id
+2. `/api/v1/activity/:id`, Menghapus data activity berdasarkan id
 
 ### API Address PUT
-1. */api/v1/pegawai/add*, Menambahkan data pegawai baru<br>
+1. `/api/v1/pegawai/add`, Menambahkan data pegawai baru<br>
 Parameter ` name,nip,pass,jabatan,grade,site,ttl,alamat,ttd,image `<br>
-2. */api/v1/activity/add*, Menambahkan data activity baru<br>
+2. `/api/v1/activity/add`, Menambahkan data activity baru<br>
 Parameter ` name,site,no,unit,code,cn,hm,wo,component,job,date,start,finish,adj,active `<br>
